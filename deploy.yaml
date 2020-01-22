@@ -12,10 +12,10 @@
            name=lxml
       - name: Stop Tomcat
         shell : |
-            cd  /home/ubuntu/apache-tomcat-8.5.50/bin
+            cd  /home/jeeva_uvaraju/apache-tomcat-8.5.50/bin
             /bin/sh shutdown.sh
             ps -ef | grep tomcat
-            /bin/rm -rf /home/ubuntu/apache-tomcat-8.5.50/webapps/helloworld*
+            /bin/rm -rf /home/jeeva_uvaraju/apache-tomcat-8.5.50/webapps/helloworld*
         become: yes
 
       - name: downloading the Zip file
@@ -24,15 +24,15 @@
          artifact_id: helloworld
          extension: war
          version: "5.2"
-         repository_url: 'http://IP:8081/artifactory/helloworld'
+         repository_url: 'http://35.196.183.175:8081/artifactory/helloworld'
          username: admin
-         password: PASSWD
-         dest: '/home/ubuntu/apache-tomcat-8.5.50/webapps/helloworld.war'
+         password: admin@123
+         dest: '/home/jeeva_uvaraju/apache-tomcat-8.5.50/webapps/helloworld.war'
 
 
       - name: Start Tomcat
         shell : |
-            cd  /home/ubuntu/apache-tomcat-8.5.50/bin
+            cd  /home/jeeva_uvaraju/apache-tomcat-8.5.50/bin
             ls -lrt ../webapps
             nohup ./catalina.sh start
         become: yes
